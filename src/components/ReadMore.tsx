@@ -1,16 +1,16 @@
 import { useState, useLayoutEffect, useRef } from 'react'
 
-type CardProps = {
+type ReadMoreProps = {
   text: string
 }
-export default function Card({ text }: CardProps) {
+
+export default function ReadMore({ text }: ReadMoreProps) {
   const contentRef = useRef<HTMLParagraphElement>(null)
 
   const [showMore, setShowMore] = useState(false)
   const [showLink, setShowLink] = useState(false)
 
   useLayoutEffect(() => {
-    console.log(contentRef)
     if (contentRef.current && contentRef.current?.clientHeight < contentRef.current?.scrollHeight) {
       setShowLink(true)
     }
@@ -21,7 +21,7 @@ export default function Card({ text }: CardProps) {
   }
 
   return (
-    <div className='bg-gray-900 flex-initial min-h-[800px] overflow-hidden p-4 rounded-md shadow-2xl text-white'>
+    <div className='bg-gray-900 min-h-fit overflow-hidden p-4 rounded-md shadow-2xl text-white'>
       <p ref={contentRef} className={showMore ? 'line-clamp-none' : 'line-clamp-10'}>
         {text}
       </p>
