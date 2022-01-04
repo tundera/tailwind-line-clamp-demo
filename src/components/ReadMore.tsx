@@ -25,9 +25,9 @@ export default function ReadMore({ text }: ReadMoreProps) {
       <p ref={contentRef} className={showMore ? 'line-clamp-none' : 'line-clamp-10'}>
         {text}
       </p>
-      <a className={showLink ? 'text-blue-500' : 'text-blue-500 invisible'} onClick={onToggle}>
+      <button className={showLink ? 'text-blue-500' : 'text-blue-500 invisible'} onClick={onToggle}>
         {showMore ? 'Read less' : 'Read more'}
-      </a>
+      </button>
     </div>
   )
 }
